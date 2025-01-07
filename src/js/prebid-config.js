@@ -29,28 +29,21 @@ var adUnits = [
     }
 ];
 
-// Function to dynamically set floor price based on size and device type
+// Dynamic floor pricing
 function getFloorPrice(size, deviceType) {
-    let basePrice = 0.50; // Base floor price
-    if (deviceType === 'mobile') {
-        basePrice = 0.30; // Lower price for mobile
-    } else if (deviceType === 'desktop') {
-        basePrice = 0.70; // Higher price for desktop
-    }
-    
-    // Adjust based on size - this is just an example. You might want more nuanced logic
-    if (size[0] > 700) { // Width greater than 700px
-        return basePrice * 1.2; // 20% increase for larger ads
-    }
+    let basePrice = 0.50;
+    if (deviceType === 'mobile') basePrice = 0.30;
+    if (deviceType === 'desktop') basePrice = 0.70;
+    if (size[0] > 700) return basePrice * 1.2; // Larger ads cost more
     return basePrice;
 }
 
-// Simplified device type detection based on viewport width
+// Detect device type
 function detectDeviceType() {
-    return window.innerWidth < 768 ? 'mobile' : 'desktop'; // Simplified detection
+    return window.innerWidth < 768 ? 'mobile' : 'desktop'; 
 }
 
-// Apply dynamic floor pricing
+/// Apply floor prices dynamically
 adUnits.forEach(unit => {
     unit.bids.forEach(bid => {
         let deviceType = detectDeviceType();
@@ -59,5 +52,27 @@ adUnits.forEach(unit => {
     });
 });
 
+// Lazy-loading helper function
+function lazyLoadAds() {
+    let adElements = document.querySelectorAll('[data-lazy-ad]');
+    adElements.forEach(ad => {
+        if (ad.getBoundingClientRect().top < window.innerHeight) {
+            ad.setAttribute('id', ad.dataset.lazyAd);
+        }
+    });
+}
+
+// Initialize Prebid analytics
+window.pbjs = window.pbjs || {};
+window.pbjs.que = window.pbjs.que || [];
+window.pbjs.que.push(function () {
+    pbjs.enableAnalytics([
+        {
+            provider: 'ga',
+            options: { trackerId: 'UA-123456-1' } // Replace with actual GA tracker ID
+        }
+    ]);
+});
+
 // Export configuration
-export { PREBID_TIMEOUT, adUnits, getFloorPrice, detectDeviceType };
+export { PREBID_TIMEOUT, adUnits, lazyLoadAds, FAILOVER_AD };
