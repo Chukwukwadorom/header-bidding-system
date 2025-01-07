@@ -1,0 +1,23 @@
+/* src/css/styles.css */
+#div-gpt-ad-1460505748561-0 {
+    width: 100%;
+    max-width: 300px; /* Default width */
+    height: 250px; /* Default height */
+    margin: 0 auto;
+    background-color:aqua;
+}
+
+@media (min-width: 768px) {
+    #div-gpt-ad-1460505748561-0 {
+        max-width: 728px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #div-gpt-ad-1460505748561-0 {
+        max-width: 300px;
+        height: 600px;
+    }
+}
+
