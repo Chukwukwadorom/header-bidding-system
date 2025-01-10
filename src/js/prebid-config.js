@@ -1,8 +1,9 @@
 var PREBID_TIMEOUT = 1000; // Set timeout in milliseconds
+const FAILOVER_AD = '<div>Fallback Ad Content</div>';  // incase i have a fall ad
 
 var adUnits = [
     {
-        code: 'div-gpt-ad-1460505748561-0',
+        code: 'div-gpt-ad-1',
         mediaTypes: {
             banner: {
                 sizes: [[300, 250], [300, 600]], // Default sizes
@@ -69,7 +70,7 @@ window.pbjs.que.push(function () {
     pbjs.enableAnalytics([
         {
             provider: 'ga',
-            options: { trackerId: 'UA-123456-1' } // Replace with actual GA tracker ID
+            options: { trackerId: 'UA-123456-1' } //note to self, circle back!
         }
     ]);
 });

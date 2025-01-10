@@ -34,7 +34,7 @@ function displayFallbackAd() {
     });
 }
 
-// Handle lazy-loading ads on scroll
+//lazy-loading ads on scroll
 document.addEventListener('scroll', lazyLoadAds);
 
 // GPT setup example (for integration with Google Publisher Tags)
