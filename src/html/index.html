@@ -1,16 +1,43 @@
-<!-- src/html/index.html -->
+<<!-- src/html/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prebid.js Example</title>
-    <script src="../node_modules/prebid.js/dist/prebid.js"></script>
-    <script type="module" src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- <script src="../node_modules/prebid.js/dist/prebid.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/prebid.js/dist/prebid.js" async></script>
+    <script type="module" src="../js/main.js" defer></script>
 </head>
 <body>
-    <div id="div-gpt-ad-1460505748561-0" style="width:300px;height:250px;">
-        <!-- Ad will be placed here -->
-    </div>
+    <!-- Main content -->
+    <main>
+        <h1>Welcome to Our Example Website</h1>
+        
+        <article>
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        
+        <!-- Ad Slot with fallback for no JavaScript -->
+        <div id="div-gpt-ad-1" style="width:100%;max-width:300px;height:250px;margin:0 auto;">
+            <noscript>
+                <aside class="ad-fallback" style="width: 100%; height: 100%; background-color: #eee; display: flex; align-items: center; justify-content: center;">
+                    <p>Ad not available. Please enable JavaScript or check your connection.</p>
+                </aside>
+            </noscript>
+        </div>
+        
+        <article>
+            <h2>Our Services</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+    </main>
+
+    <!-- Additional content or footer -->
+    <footer>
+        <p>&copy; 2025 Kwado's Website. All rights reserved.</p>
+    </footer>
 </body>
 </html>
